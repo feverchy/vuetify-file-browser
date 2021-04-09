@@ -87,10 +87,10 @@ const availableStorages = [
 ];
 
 const endpoints = {
-    list: { url: "/storage/{storage}/list?path={path}", method: "get" },
-    upload: { url: "/storage/{storage}/upload?path={path}", method: "post" },
-    mkdir: { url: "/storage/{storage}/mkdir?path={path}", method: "post" },
-    delete: { url: "/storage/{storage}/delete?path={path}", method: "post" }
+    list: { url: "/storage/{taskId}/{storage}/list?path={path}", method: "get" },
+    upload: { url: "/storage/{taskId}/{storage}/upload?path={path}", method: "post" },
+    mkdir: { url: "/storage/{taskId}/{storage}/mkdir?path={path}", method: "post" },
+    delete: { url: "/storage/{taskId}/{storage}/delete?path={path}", method: "post" }
 };
 
 const fileIcons = {
@@ -147,7 +147,8 @@ export default {
         // max files count to upload at once. Unlimited by default
         maxUploadFilesCount: { type: Number, default: 0 },
         // max file size to upload. Unlimited by default
-        maxUploadFileSize: { type: Number, default: 0 }
+        maxUploadFileSize: { type: Number, default: 0 },
+        taskId: {type: String, default: ""}
     },
     data() {
         return {
