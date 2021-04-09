@@ -155,6 +155,7 @@ export default {
             loading: 0,
             path: "",
             activeStorage: null,
+            activeTask: null,
             uploadingFiles: false, // or an Array of files
             refreshPending: false,
             axiosInstance: null
@@ -180,6 +181,7 @@ export default {
         },
         storageChanged(storage) {
             this.activeStorage = storage;
+            this.activeTask = taskId;
         },
         addUploadingFiles(files) {
             files = Array.from(files);
@@ -214,6 +216,7 @@ export default {
     },
     created() {
         this.activeStorage = this.storage;
+        this.activeTask = this.taskId;
         this.axiosInstance = this.axios || axios.create(this.axiosConfig);
     },
     mounted() {
